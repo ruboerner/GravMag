@@ -1,6 +1,10 @@
 """
-mprism
+    mprism(x, y, z, xextent, yextent, zextent, M)
 
+Compute the magnetic anomaly of a prism bounded by the axis-parallel planes defined
+by `xextent`, `yextent`, and `zextent`.
+Observation point is given by cartesian coordinates `x, y, z`.
+The magnetization of the body is given by the three components of `M` given in units of A/m.
 """
 function mprism(x, y, z, x1, y1, z1, M)
     dZ = 0.0

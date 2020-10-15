@@ -1,3 +1,4 @@
+![dT](https://ruboerner.github.io/images/prism_response.svg "dT")
 # GravMag.jl
 This package provides tools for the calculation of gravity and magnetic responses using `Julia`.
 

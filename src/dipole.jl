@@ -1,8 +1,7 @@
 """
     dipole(m, r, rs)
 
-Compute the magnetic anomaly of a magnetic dipole having a magnetic dipole moment `m` located at point `rs``
-observed in point `r`.
+Compute the magnetic anomaly of a magnetic dipole having a magnetic dipole moment `m` located at point `rs` observed in point `r`.
 """
 function dipole(m, r, rs)
     mu = pi * 4e-7

@@ -4,7 +4,7 @@ This package provides tools for the calculation of gravity and magnetic response
 ## Installation
 To install, do
 ```julia
-] clone https://github.com/ruboerner/GravMag.jl
+] add https://github.com/ruboerner/GravMag.git
 ```
 
 ## Getting started

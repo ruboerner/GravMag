@@ -8,7 +8,7 @@ To install, do
 ```
 
 ## Getting started
-See the tutorial Jupyter Noteboks in the folder `examples`.
+See the tutorial Jupyter Notebook in the folder `examples`.
 
 ## Functions
 * `dipole`: Magnetic anomaly of a point dipole source

@@ -11,6 +11,7 @@ To install, do
 See the tutorial Jupyter Notebook in the folder `examples`.
 
 ## Functions
+Currently, the package is limited to the evaluation of the functions
 * `dipole`: Magnetic anomaly of a point dipole source
 * `mprism`: Magnetic anomaly of a prismatic body
 

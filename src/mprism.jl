@@ -13,7 +13,7 @@ function mprism(x, y, z, x1, y1, z1, M)
     for i in 1:2
         for j in 1:2
             for k in 1:2
-                f = (-1)^(i+j+k)
+                f = (-1.0)^(i+j+k)
                 dX += f * (
                 M[1] * g2(y - y1[j], z - z1[k], x - x1[i]) +
                 M[2] * g1(x - x1[i], z - z1[k], y - y1[j]) +
@@ -39,15 +39,15 @@ function mprism(x, y, z, x1, y1, z1, M)
     return [dX, dY, dZ]
 end
 
-function g1(u, v, w)
-    r = sign(v) * log(
+function g1(u::Real, v::Real, w::Real)
+    r::Real = sign(v) * log(
         sqrt(u^2 + w^2) /
         (abs(v) + sqrt(u^2 + v^2 + w^2))
         )
     return r
 end
 
-function g2(u, v, w)
-    r = atan(u * v / (w * sqrt(u^2 + v^2 + w^2)))
+function g2(u::Real, v::Real, w::Real)
+    r::Real = atan(u * v / (w * sqrt(u^2 + v^2 + w^2)))
     return r
 end

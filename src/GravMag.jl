@@ -18,14 +18,12 @@ struct ScalarDatum <: Datum
     unit::String
 end
 
+ScalarDatum(p, d) = ScalarDatum(p, d, "dT", "nT")
 struct VectorDatum <: Datum
 	p::Point
 	d::Array{Float64, 1}
 	datatype::String
 	unit::String
-	function VectorDatum(p, d, datatype="B", unit="nT")
-		new(p, d, datatype, unit)
-	end
 end
 
 VectorDatum(p, d) = VectorDatum(p, d, "B", "nT")

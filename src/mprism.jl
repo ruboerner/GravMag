@@ -6,10 +6,11 @@ by `xextent`, `yextent`, and `zextent`.
 Observation point is given by cartesian coordinates `x, y, z`.
 The magnetization of the body is defined by the three components of `M` measured in units of A/m.
 """
-function mprism(x, y, z, x1, y1, z1, M)
-    dZ = 0.0
-    dX = 0.0
-    dY = 0.0
+function mprism(x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::Array{T}, M::Array{T}) where T<:Real
+    dZ = zero(eltype(T))
+    dX = zero(eltype(T))
+    dY = zero(eltype(T))
+    f = zero(eltype(T))
     for i in 1:2
         for j in 1:2
             for k in 1:2
@@ -39,15 +40,13 @@ function mprism(x, y, z, x1, y1, z1, M)
     return [dX, dY, dZ]
 end
 
-function g1(u::Real, v::Real, w::Real)
-    r::Real = sign(v) * log(
+function g1(u::T, v::T, w::T) where T<:Real
+    return sign(v) * log(
         sqrt(u^2 + w^2) /
         (abs(v) + sqrt(u^2 + v^2 + w^2))
         )
-    return r
 end
 
-function g2(u::Real, v::Real, w::Real)
-    r::Real = atan(u * v / (w * sqrt(u^2 + v^2 + w^2)))
-    return r
+function g2(u::T, v::T, w::T) where T<:Real
+    return atan(u * v / (w * sqrt(u^2 + v^2 + w^2)))
 end

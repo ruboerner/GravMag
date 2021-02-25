@@ -9,7 +9,7 @@ julia> dircos(56.0, 0.0)
 (0.5591929034707468, 0.0, 0.8290375725550417)
 ```
 """
-function dircos(incl, decl)
+function dircos(incl::T, decl::T) where T<:Real
     xincl = incl * pi / 180.0
     xdecl = decl * pi / 180.0
     a = cos(xincl) * cos(xdecl)

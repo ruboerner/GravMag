@@ -28,6 +28,8 @@ struct VectorDatum <: Datum
 	end
 end
 
+VectorDatum(p, d) = Vectordatum(p, d, "B", "nT")
+
 include("mprism.jl")
 include("dipole.jl")
 include("tools.jl")

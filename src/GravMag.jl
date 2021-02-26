@@ -1,6 +1,7 @@
 module GravMag
 
 using LinearAlgebra
+using StaticArrays
 
 # Type declarations
 struct Point{T}
@@ -33,7 +34,7 @@ include("dipole.jl")
 include("tools.jl")
 
 export Point, Datum, ScalarDatum, VectorDatum
-export mprism, dipole, dircos
+export mprism, dipole, dircos, mprism!
 
 
 end # module

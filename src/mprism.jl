@@ -60,15 +60,15 @@ Observation point is given by cartesian coordinates `x, y, z`.
 The magnetization of the body is defined by the three components of `M` measured in units of A/m.
 """
 function mprism!(B::Array{T}, x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::Array{T}, M::Array{T}) where T<:Real
-	G11 = G2(y, z, x, y1, z1, x1)
-	G12 = G1(x, z, y, x1, z1, y1)
-	G13 = G1(x, y, z, x1, y1, z1)
+	G11 = g2(y, z, x, y1, z1, x1)
+	G12 = g1(x, z, y, x1, z1, y1)
+	G13 = g1(x, y, z, x1, y1, z1)
 	#G21 = G12
-	G22 = G2(x, z, y, x1, z1, y1)
-	G23 = G1(y, x, z, y1, x1, z1)
+	G22 = g2(x, z, y, x1, z1, y1)
+	G23 = g1(y, x, z, y1, x1, z1)
 	#G31 = G13
 	#G32 = G23
-	G33 = G2(x, y, z, x1, y1, z1)
+	G33 = g2(x, y, z, x1, y1, z1)
 	
 	G = @SMatrix [G11 G12 G13
 		G12 G22 G23

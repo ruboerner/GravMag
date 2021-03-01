@@ -1,7 +1,6 @@
 module GravMag
 
 using LinearAlgebra
-using StaticArrays
 
 # Type declarations
 struct Point{T}

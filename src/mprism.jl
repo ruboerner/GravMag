@@ -70,7 +70,7 @@ function mprism!(B::Array{T}, x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::
 	#G32 = G23
 	G33 = G2(x, y, z, x1, y1, z1)
 	
-	G = @SMatrix [G11 G12 G13
+	G = [G11 G12 G13
 		G12 G22 G23
 		G13 G23 G33]
 		

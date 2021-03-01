@@ -111,23 +111,23 @@ function G2(x::T, y::T, z::T, x1::Array{T, 1}, y1::Array{T, 1}, z1::Array{T, 1})
         # arg2 = (x - x1[2], y - y1[2], z - z1[2])
         
         return -g2(x - x1[1], y - y1[1], z - z1[1]) +
-         g2(x - x1[1], y - y1[2], z - z1[1]) +
+         g2(x - x1[1], y - y1[1], z - z1[2]) +
+         g2(x - x1[1], y - y1[2], z - z1[1]) -
+         g2(x - x1[1], y - y1[2], z - z1[2]) +
          g2(x - x1[2], y - y1[1], z - z1[1]) -
+         g2(x - x1[2], y - y1[1], z - z1[2]) -
          g2(x - x1[2], y - y1[2], z - z1[1]) +
-         g2(x - x1[1], y - y1[1], z - z1[2]) -
-         g2(x - x1[1], y - y1[2], z - z1[2]) -
-         g2(x - x1[2], y - y1[1], z - z1[2]) +
          g2(x - x1[2], y - y1[2], z - z1[2])
 end
 
 
 function G1(x::T, y::T, z::T, x1::Array{T, 1}, y1::Array{T, 1}, z1::Array{T, 1}) where T<:Real
         return -g1(x - x1[1], y - y1[1], z - z1[1]) +
-         g1(x - x1[1], y - y1[2], z - z1[1]) +
+         g1(x - x1[1], y - y1[1], z - z1[2]) +
+         g1(x - x1[1], y - y1[2], z - z1[1]) -
+         g1(x - x1[1], y - y1[2], z - z1[2]) +
          g1(x - x1[2], y - y1[1], z - z1[1]) -
+         g1(x - x1[2], y - y1[1], z - z1[2]) -
          g1(x - x1[2], y - y1[2], z - z1[1]) +
-         g1(x - x1[1], y - y1[1], z - z1[2]) -
-         g1(x - x1[1], y - y1[2], z - z1[2]) -
-         g1(x - x1[2], y - y1[1], z - z1[2]) +
          g1(x - x1[2], y - y1[2], z - z1[2])
 end

@@ -28,11 +28,13 @@ end
 
 VectorDatum(p, d) = VectorDatum(p, d, "B", "nT")
 
+include("gbox.jl")
 include("mprism.jl")
 include("dipole.jl")
 include("tools.jl")
 
 export Point, Datum, ScalarDatum, VectorDatum
+export gbox
 export mprism, dipole, dircos, mprism_, mprism!
 
 

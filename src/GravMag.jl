@@ -33,7 +33,7 @@ include("dipole.jl")
 include("tools.jl")
 
 export Point, Datum, ScalarDatum, VectorDatum
-export mprism, dipole, dircos, mprism_
+export mprism, dipole, dircos, mprism_, mprism!
 
 
 end # module

@@ -11,25 +11,32 @@ function mprism(x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::Array{T}, M::A
     dX = zero(eltype(T))
     dY = zero(eltype(T))
     f = zero(eltype(T))
+    g12 = 0.0
+    g13 = 0.0
+    g23 = 0.0
     for i in 1:2
         for j in 1:2
             for k in 1:2
+                g12 = g1(x - x1[i], z - z1[k], y - y1[j])
+                g13 = g1(x - x1[i], y - y1[j], z - z1[k])
+                g23 = g1(y - y1[j], x - x1[i], z - z1[k])
+                
                 f = (-1.0)^(i+j+k)
                 dX += f * (
                 M[1] * g2(y - y1[j], z - z1[k], x - x1[i]) +
-                M[2] * g1(x - x1[i], z - z1[k], y - y1[j]) +
-                M[3] * g1(x - x1[i], y - y1[j], z - z1[k])
+                M[2] * g12 + #g1(x - x1[i], z - z1[k], y - y1[j])
+                M[3] * g13 #g1(x - x1[i], y - y1[j], z - z1[k])
                 )
 
                 dY += f * (
-                M[1] * g1(x - x1[i], z - z1[k], y - y1[j]) +
+                M[1] * g12 + #g1(x - x1[i], z - z1[k], y - y1[j])
                 M[2] * g2(x - x1[i], z - z1[k], y - y1[j]) +
-                M[3] * g1(y - y1[j], x - x1[i], z - z1[k])
+                M[3] * g23 #g1(y - y1[j], x - x1[i], z - z1[k])
                 )
 
                 dZ += f * (
-                M[1] * g1(x - x1[i], y - y1[j], z - z1[k]) +
-                M[2] * g1(y - y1[j], x - x1[i], z - z1[k]) +
+                M[1] * g13 + #g1(x - x1[i], y - y1[j], z - z1[k]) +
+                M[2] * g23 + #g1(y - y1[j], x - x1[i], z - z1[k]) +
                 M[3] * g2(x - x1[i], y - y1[j], z - z1[k]))
             end
         end

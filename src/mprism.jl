@@ -69,8 +69,8 @@ function mprism_(x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::Array{T}, M::
 	#G31 = G13
 	#G32 = G23
 	G33 = G2(x, y, z, x1, y1, z1)
-	
-	G = [G11 G12 G13
+	G = Array{T}(undef, 3, 3)
+	G .= [G11 G12 G13
 		G12 G22 G23
 		G13 G23 G33]
 		
@@ -106,24 +106,28 @@ function mprism!(B::Array{T}, x::T, y::T, z::T, x1::Array{T}, y1::Array{T}, z1::
 end
 
 function G2(x::T, y::T, z::T, x1::Array{T, 1}, y1::Array{T, 1}, z1::Array{T, 1}) where T<:Real
-        return -g2(y - y1[1], z - z1[1], x - x1[1]) +
-         g2(y - y1[1], z - z1[2], x - x1[1]) +
-         g2(y - y1[2], z - z1[1], x - x1[1]) -
-         g2(y - y1[2], z - z1[2], x - x1[1]) +
-         g2(y - y1[1], z - z1[1], x - x1[2]) -
-         g2(y - y1[1], z - z1[2], x - x1[2]) -
-         g2(y - y1[2], z - z1[1], x - x1[2]) +
-         g2(y - y1[2], z - z1[2], x - x1[2])
+
+        # arg1 = (x - x1[1], y - y1[1], z - z1[1])
+        # arg2 = (x - x1[2], y - y1[2], z - z1[2])
+        
+        return -g2(x - x1[1], y - y1[1], z - z1[1]) +
+         g2(x - x1[1], y - y1[2], z - z1[1]) +
+         g2(x - x1[2], y - y1[1], z - z1[1]) -
+         g2(x - x1[2], y - y1[2], z - z1[1]) +
+         g2(x - x1[1], y - y1[1], z - z1[2]) -
+         g2(x - x1[1], y - y1[2], z - z1[2]) -
+         g2(x - x1[2], y - y1[1], z - z1[2]) +
+         g2(x - x1[2], y - y1[2], z - z1[2])
 end
 
 
 function G1(x::T, y::T, z::T, x1::Array{T, 1}, y1::Array{T, 1}, z1::Array{T, 1}) where T<:Real
-        return -g1(y - y1[1], z - z1[1], x - x1[1]) +
-         g1(y - y1[1], z - z1[2], x - x1[1]) +
-         g1(y - y1[2], z - z1[1], x - x1[1]) -
-         g1(y - y1[2], z - z1[2], x - x1[1]) +
-         g1(y - y1[1], z - z1[1], x - x1[2]) -
-         g1(y - y1[1], z - z1[2], x - x1[2]) -
-         g1(y - y1[2], z - z1[1], x - x1[2]) +
-         g1(y - y1[2], z - z1[2], x - x1[2])
+        return -g1(x - x1[1], y - y1[1], z - z1[1]) +
+         g1(x - x1[1], y - y1[2], z - z1[1]) +
+         g1(x - x1[2], y - y1[1], z - z1[1]) -
+         g1(x - x1[2], y - y1[2], z - z1[1]) +
+         g1(x - x1[1], y - y1[1], z - z1[2]) -
+         g1(x - x1[1], y - y1[2], z - z1[2]) -
+         g1(x - x1[2], y - y1[1], z - z1[2]) +
+         g1(x - x1[2], y - y1[2], z - z1[2])
 end

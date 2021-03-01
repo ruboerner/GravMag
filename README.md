@@ -3,7 +3,7 @@
 This package provides tools for the calculation of gravity and magnetic responses using `Julia`.
 
 ## Installation
-To install, do
+To install in the `Julia` REPL, type
 ```julia
 ] add https://github.com/ruboerner/GravMag.git
 ```
@@ -14,7 +14,8 @@ See the tutorial Jupyter Notebook in the folder `examples`.
 ## Functions
 Currently, the package is limited to the evaluation of the functions
 * `dipole`: Magnetic anomaly of a point dipole source
-* `mprism`: Magnetic anomaly of a prismatic body
+* `mprism`: Magnetic anomaly of a box-shaped body
+* `gbox`: Vertical component of the gravitational attraction of a box-shaped body
 
 ## Requirements
 `Julia > 1.0`

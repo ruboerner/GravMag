@@ -36,7 +36,7 @@ include("tools.jl")
 const mbox = mprism
 
 export Point, Datum, ScalarDatum, VectorDatum
-export gbox
+export gbox, mbox
 export mprism, dipole, dircos, mprism_, mprism!
 
 

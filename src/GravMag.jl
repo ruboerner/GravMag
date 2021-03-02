@@ -33,6 +33,8 @@ include("mprism.jl")
 include("dipole.jl")
 include("tools.jl")
 
+const mbox = mprism
+
 export Point, Datum, ScalarDatum, VectorDatum
 export gbox
 export mprism, dipole, dircos, mprism_, mprism!
